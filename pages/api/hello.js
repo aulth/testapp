@@ -4,5 +4,10 @@ import User from "../../models/User"
 console.log('hello')
 connectToDb()
 export default function handler(req, res) {
-  res.status(200).json({ name: 'John Doe' })
+  User.find({}).then((data)=>{
+    res.status(200).json({
+      success: true,
+      data: data,
+    })
+  })
 }
